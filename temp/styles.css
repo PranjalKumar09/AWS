@@ -1,0 +1,228 @@
+/* Base reset / normalization */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.6;
+  font-size: 16px;
+  color: #222;
+  background-color: #fff;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Links */
+a {
+  color: #0055aa;
+  text-decoration: none;
+}
+a:hover,
+a:focus {
+  text-decoration: underline;
+}
+
+/* Headings */
+h1, h2, h3 {
+  line-height: 1.2;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+h1 {
+  font-size: 2rem;
+}
+h2 {
+  font-size: 1.5rem;
+}
+h3 {
+  font-size: 1.2rem;
+}
+
+/* Layout wrappers */
+header,
+main,
+footer {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* Header / nav */
+header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #ddd;
+}
+header img {
+  max-height: 60px;
+  height: auto;
+}
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 1rem;
+}
+nav a {
+  padding: 0.5rem;
+  display: inline-block;
+}
+
+/* Hero */
+#home {
+  text-align: center;
+  margin-top: 1rem;
+}
+#home img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+.hero-content {
+  margin: 1rem auto;
+  max-width: 700px;
+}
+
+/* Services */
+#services ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 2rem;
+}
+#services li {
+  border: 1px solid #eee;
+  padding: 1rem;
+  border-radius: 6px;
+}
+#services figure {
+  margin: 1rem 0;
+}
+#services img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+/* Portfolio gallery */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.gallery img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  display: block;
+}
+.gallery figcaption {
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 0.25rem;
+}
+
+/* Team */
+#team ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+#team figure {
+  text-align: center;
+}
+#team img {
+  border-radius: 50%;
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Contact */
+form {
+  margin-top: 1rem;
+  max-width: 500px;
+}
+form div {
+  margin-bottom: 1rem;
+}
+input,
+textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  font: inherit;
+}
+button {
+  padding: 0.6rem 1rem;
+  border: none;
+  background-color: #0055aa;
+  color: #fff;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+button:hover,
+button:focus {
+  background-color: #003d80;
+}
+
+/* Footer */
+footer {
+  margin-top: 3rem;
+  border-top: 1px solid #ddd;
+  text-align: center;
+  font-size: 0.9rem;
+  padding: 2rem 1rem;
+}
+footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+footer a {
+  color: inherit;
+}
+
+/* Utility */
+.visually-hidden {
+  position: absolute !important;
+  height: 1px; width: 1px;
+  overflow: hidden;
+  clip: rect(1px,1px,1px,1px);
+  white-space: nowrap;
+}
+
+/* Skip link (visible on focus only) */
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: auto;
+  background: #000;
+  color: #fff;
+  padding: 0.5rem;
+  z-index: 100;
+}
+.skip-link:focus {
+  left: 0;
+  top: 0;
+}
