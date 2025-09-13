@@ -1,0 +1,9 @@
+Resources:
+  SimpleEC2Instance:
+    Type: "AWS::EC2::Instance"
+    Properties:
+      InstanceType: t4g.micro    # ARM64 instance type
+      ImageId: ami-03d9fcc39480315d4  # Your Ubuntu ARM64 AMI
+      Tags:
+        - Key: Name
+          Value: MyUbuntuInstance

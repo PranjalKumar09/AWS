@@ -1,0 +1,56 @@
+Resources:
+  SimpleEC2Instance:
+    Type: "AWS::EC2::Instance"
+    Properties:
+      InstanceType: t4g.micro
+      ImageId: ami-03d9fcc39480315d4
+      SecurityGroupIds:
+        - sg-0271e7e5af09fcf73
+      Tags:
+        - Key: Name
+          Value: MyUbuntuInstance
+        - Key: Environment
+          Value: Production
+      UserData:
+        Fn::Base64: |
+          #!/bin/bash
+          # Update system
+          apt-get update -y
+          apt-get upgrade -y
+          
+          # Install Apache2
+          apt-get install -y apache2
+          
+          # Configure Apache to start on boot
+          systemctl enable apache2
+          systemctl start apache2
+          
+          # Create custom index page
+          cat > /var/www/html/index.html << EOF
+          <html>
+          <head>
+              <title>Ubuntu Apache Server</title>
+          </head>
+          <body>
+              <h1>Welcome to Ubuntu Apache Server!</h1>
+              <p>This is Pranjal Kumar Shukla</p>
+              <p>23BAI10411p>
+              <p>Server time: $(date)</p>
+          </body>
+          </html>
+          EOF
+          
+          # Set proper permissions
+          chown -R www-data:www-data /var/www/html
+          chmod -R 755 /var/www/html
+          
+          # Restart Apache to apply changes
+          systemctl restart apache2
+          
+          # Print completion message
+          echo "Apache installation and configuration completed successfully!"
+
+  ElasticIP:
+    Type: "AWS::EC2::EIP"
+    Properties:
+      InstanceId: !Ref SimpleEC2Instance
