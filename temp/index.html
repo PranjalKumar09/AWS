@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Amazon CDN (S3 + CloudFront) Demo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background: #f5f5f5;
+      color: #333;
+    }
+    h1 {
+      color: #2c3e50;
+    }
+    .image-box {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0px 2px 6px rgba(0,0,0,0.15);
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    img {
+      max-width: 100%;
+      border: 2px solid #ddd;
+      border-radius: 6px;
+    }
+    code {
+      background: #eee;
+      padding: 4px 6px;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Amazon S3 + CloudFront CDN Demo</h1>
+  <p>
+    This page demonstrates how to serve images from <strong>Amazon S3</strong> and later accelerate delivery using <strong>Amazon CloudFront CDN</strong>.
+  </p>
+
+  <div class="image-box">
+    <h2>Image Served from S3</h2>
+    <!-- Replace with your real S3 image link -->
+    <img src="https://<your-bucket-name>.s3.amazonaws.com/demo-cat.png" alt="Demo Cat Image">
+    <p>Image URL: <code>https://your-bucket-name.s3.amazonaws.com/demo-cat.png</code></p>
+  </div>
+
+  <div class="image-box">
+    <h2>Image Served from CloudFront (after setup)</h2>
+    <!-- Replace once you create CloudFront -->
+    <img src="https://<your-distribution-id>.cloudfront.net/demo-cat.png" alt="Demo Cat Image via CloudFront">
+    <p>Image URL: <code>https://your-distribution-id.cloudfront.net/demo-cat.png</code></p>
+  </div>
+
+  <h2>How to Use</h2>
+  <ol>
+    <li>Upload your image (<code>demo-cat.png</code>) to S3 bucket.</li>
+    <li>Make sure the bucket/object is public OR accessible by CloudFront.</li>
+    <li>Update the first image tag with your real S3 link.</li>
+    <li>Create a CloudFront distribution that points to your S3 bucket.</li>
+    <li>Replace the second image tag with your CloudFront domain link.</li>
+  </ol>
+
+</body>
+</html>
